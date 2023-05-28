@@ -2,12 +2,18 @@
 
 import csv
 
+# convert csv to dictionary
 with open( 'chs2cht.csv','r' ) as csvfile:
     reader = csv.reader( csvfile )
-    with open( 'newfile.csv','w' ) as outfile:
-        writer = csv.writer( outfile )
-        mydict = { rows[0]:rows[1] for rows in reader }
+    mydict = { rows[0]:rows[1] for rows in reader }
 
-print( mydict )
+infile = open( 'subtitles.chs.srt','r' )
+outfile = open( 'subtitles.cht.srt','w' )
+
+for line in infile:
+    outfile.write( line )
+
+infile.close()
+outfile.close()
 
 

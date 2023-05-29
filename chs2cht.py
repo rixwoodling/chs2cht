@@ -14,17 +14,18 @@ for i in range( 1, len( sys.argv )):
         infile = open( sys.argv[i],'r' )
         outfile = open( sys.argv[i].replace( '.srt','.cht.srt' ),'w' )
 
+        count = 0
         for line in infile:
             for e in line:
                 if e in mydict:
                     e = e.replace( e, mydict[e] )
-                    print( e,end='' )
+                    count = count + 1
                 outfile.write( e )
 
         infile.close()
         outfile.close()
 
-        print( "done" )
+        print( "done. " + str( count ) + " changes made." )
 
     else:
         print( "not an srt file" )

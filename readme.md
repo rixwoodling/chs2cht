@@ -2,10 +2,12 @@
 # CSV-Based Subtitle Converter (CHS to CHT)
 
 ## Description
-This script converts **Simplified Chinese (CHS) subtitles** in `.srt` files to **Traditional Chinese (CHT)** using a mapping provided in a CSV file.
+This script converts **Simplified Chinese (CHS) subtitles** in `.srt` files
+to **Traditional Chinese (CHT)** using a mapping provided in a CSV file.
 
 ## How It Works
-1. **Reads a CSV file (`chs2cht.csv`)** where each row contains a simplified-to-traditional character mapping.
+1. **Reads a CSV file (`chs2cht.csv`)** where each row contains
+     a simplified-to-traditional character mapping.
 2. **Processes `.srt` subtitle files** given as command-line arguments.
 3. **Creates new `.cht.srt` files** with the converted content.
 

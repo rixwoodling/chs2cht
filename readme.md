@@ -1,62 +1,64 @@
-```
-# CSV-Based Subtitle Converter (CHS to CHT)
+# CSV-Based Subtitle Converter (CHS → CHT)
 
-## Description
-This script converts **Simplified Chinese (CHS) subtitles** in `.srt` files
-to **Traditional Chinese (CHT)** using a mapping provided in a CSV file.
+Convert Simplified Chinese `.srt` subtitles into Traditional Chinese using a CSV dictionary.
 
-## How It Works
-1. **Reads a CSV file (`chs2cht.csv`)** where each row contains
-     a simplified-to-traditional character mapping.
-2. **Processes `.srt` subtitle files** given as command-line arguments.
-3. **Creates new `.cht.srt` files** with the converted content.
+## Example
 
-## Usage
-Run the script from the command line and provide one or more `.srt` files:
-
-```bash
-python3 script.py subtitles.srt
-```
-This will generate a new file:
-
-```
-subtitles.cht.srt
+Input (`movie.srt`)
+```text
+我爱我的国家
 ```
 
-## CSV Format (`chs2cht.csv`)
-The CSV file should have **two columns**, where:
-- **Column 1** = Simplified Chinese character/word  
-- **Column 2** = Traditional Chinese equivalent  
+Output (`movie.cht.srt`)
+```text
+我愛我的國家
+```
 
-Example:
+CSV (`chs2cht.csv`)
 ```csv
 汉,漢
 爱,愛
 国,國
 ```
 
-## Example Input & Output
-### Original (`subtitles.srt`):
+## Usage
+
+```bash
+python3 script.py movie.srt
 ```
-1
-00:00:01,500 --> 00:00:04,000
-我爱我的国家
+
+Produces:
+
 ```
-### Converted (`subtitles.cht.srt`):
+movie.cht.srt
 ```
-1
-00:00:01,500 --> 00:00:04,000
-我愛我的國家
+
+## CSV Format
+
+Two columns:
+
+| Column | Description |
+|--------|-------------|
+| 1 | Simplified Chinese |
+| 2 | Traditional Chinese |
+
+Example:
+
+```csv
+汉,漢
+爱,愛
+国,國
 ```
 
 ## Notes
-- Only works on `.srt` files.
-- Non-Chinese characters remain unchanged.
-- Requires **Python 3**.
 
-## To-Do / Improvements
-- Handle **missing or malformed CSV entries**.
-- Improve **file handling** with `with open(...)` for better safety.
-- Optimize **character replacement** to reduce redundant operations.
-```
+- Supports one or more `.srt` files.
+- Only subtitle text is modified.
+- Non-Chinese text is left unchanged.
+- Requires Python 3.
 
+## Future Improvements
+
+- Validate malformed CSV rows.
+- Use safer file handling (`with open(...)`).
+- Optimize replacement performance.
